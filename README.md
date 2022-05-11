@@ -1,4 +1,7 @@
 # Bpod
 Behavior Paradigms
   
-  sudo snap install kdenlive
+**Handling of high speed videos**
+• Adobe Premiere
+• Open video file
+• Right click > Modify > Interpret footage > Change frame rate
