@@ -1,7 +1,4 @@
 # Bpod
-Behavior Paradigms
-  
-**Handling of high speed videos**.   
-• Adobe Premiere.  
-• Open video file.  
-• Right click > Modify > Interpret footage > Change frame rate.  
+Behavior Paradigm files in Bpod
+The original beavior files are stored in this repository.
+
