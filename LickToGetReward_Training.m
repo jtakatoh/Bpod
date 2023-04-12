@@ -36,7 +36,7 @@ if isempty(fieldnames(S))  % If settings file was an empty struct, populate stru
     S.GUI.ResponseWindow = 10; % Response time window in seconds
     S.GUI.LickThreshold = 2; % Number of licks required to deliver reward
     S.GUI.DrinkTime = 5; % Drinking time in seconds
-    S.GUI.MaxTrials = 100; % Maximum number of trials
+    S.GUI.MaxTrials = 200; % Maximum number of trials
     
     % setup these later
     % S.GUIMeta.DifficultyLevel.Style = 'popupmenu';
