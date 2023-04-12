@@ -6,10 +6,9 @@ function LickToGetReward_Training
 % In the regular trials, the animal needs to lick x times (x is defined by
 % S.GUI.LickThreshold) to get water reward.
 % 
-% Updata: 2023-04-11
 % ITI is changed to the random distribution between 5 to 10 sec
 % Reward volume is decreased from 3 to 2 µl
-% The auditory signal concurrently delivered with a water reward is removed
+% The auditory signal concurrently delive
 %%
 global BpodSystem
 
