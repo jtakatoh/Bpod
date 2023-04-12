@@ -1,7 +1,10 @@
 function LickToGetReward_5
 %%
 % Number of licks defined by S.GUI.LickThreshold after Cue triggers the delivery of Reward.
-% A successful trial take around 12.2 ~ 22.2 seconds. 70 trials take 14 to 25 min.  
+% 
+% Updata: 2023-04-11
+% ITI is changed to the random distribution between 5 to 10 sec
+% Reward volume is decreased from 3 to 2 µl
 %%
 global BpodSystem
 
@@ -18,16 +21,16 @@ H = BpodHiFi(BpodSystem.ModuleUSB.HiFi1); % The argument is the name of the HiFi
 %% Define parameters
 S = BpodSystem.ProtocolSettings; % Load settings chosen in launch manager into current workspace as a struct called S
 if isempty(fieldnames(S))  % If settings file was an empty struct, populate struct with default settings
-    S.GUI.RewardAmount = 3; %ul. With 3 µl. Animal can perform ~ 250 trials if it it very thirsty.
+    S.GUI.RewardAmount = 2; %ul. With 3 µl. Animal can perform ~ 250 trials if it it very thirsty.
     S.GUI.InterTrialIntervalMin = 5; % Minimum inter-trial interval in seconds
-    S.GUI.InterTrialIntervalMax = 12; % Maximum inter-trial interval in seconds
+    S.GUI.InterTrialIntervalMax = 10; % Maximum inter-trial interval in seconds
     S.GUI.CueDuration = 0.2; % Auditory cue duration in seconds
     S.GUI.SinWaveFreq = 8000; % Frequency of auditory cue. 8k is the most salient for mice, accoding to Ke. 
     S.GUI.SoundIntensity = 0.7; % Intensity of the sound, range between 0 1. 70db is good. 
     S.GUI.ResponseWindow = 10; % Response time window in seconds
     S.GUI.LickThreshold = 5; % Number of licks required to deliver reward
     S.GUI.DrinkTime = 5; % Drinking time in seconds
-    S.GUI.MaxTrials = 100; % Maximum number of trials
+    S.GUI.MaxTrials = 200; % Maximum number of trials
     
     % setup these later
     % S.GUIMeta.DifficultyLevel.Style = 'popupmenu';
@@ -62,11 +65,8 @@ for currentTrial = 1:S.GUI.MaxTrials
     R = GetValveTimes(S.GUI.RewardAmount, 1); 
     ValveTime = R; % Update reward amounts
     
-    % ITI duration. With the current setting mean ITI_duration is 7 seconds 
-    ITI_duration = exprnd((S.GUI.InterTrialIntervalMax - S.GUI.InterTrialIntervalMin)) + S.GUI.InterTrialIntervalMin; 
-    if ITI_duration >= 60
-       ITI_duration = 60;
-    end
+    % ITI duration. Random distribution between 5 to 10 sec 
+    ITI_duration = S.GUI.InterTrialIntervalMin + (S.GUI.InterTrialIntervalMax - S.GUI.InterTrialIntervalMin) * rand; 
     
     sma = NewStateMachine(); % Initialize new state machine description
     
