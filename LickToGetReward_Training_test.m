@@ -1,4 +1,4 @@
-function LickToGetReward_Training
+function LickToGetReward_Training_test
 %%
 % This behavior paradigm is for training animals.
 % To motivate the animal, water reward is delivered regardless of licking performance every 10th trials. 
@@ -18,6 +18,7 @@ function LickToGetReward_Training
 
 % Update: 2023-06-21
 % Add "BNC2 output" in Reward and Unconditioned Reward for timestamping in the Intan recording system  
+% Add Delay before Reward delivery
 %%
 global BpodSystem
 
@@ -144,7 +145,7 @@ for currentTrial = 1:S.GUI.MaxTrials
     % 'exit' state is necessary 
     sma = AddState(sma, 'Name', 'WaitForLick', ...
         'Timer', S.GUI.ResponseWindow, ...
-        'StateChangeConditions', {'Tup', 'exit', 'GlobalCounter1_End', 'Reward'}, ...
+        'StateChangeConditions', {'Tup', 'exit', 'GlobalCounter1_End', 'Delay'}, ...
         'OutputActions', {});
 
     % Unconditioned Reward delivery
@@ -153,6 +154,11 @@ for currentTrial = 1:S.GUI.MaxTrials
         'StateChangeConditions', {'Tup', 'Drinking'}, ...
         'OutputActions', {'ValveState', 1, 'BNC2', 1});
     
+    % Delay before Reward delivery: Immediate water delivery during lick causes strange tongue movemet 
+     sma = AddState(sma, 'Name', 'Delay', ...
+        'Timer', 0.15, ...
+        'StateChangeConditions', {'Tup', 'Reward'}, ...
+        'OutputActions', {});
     % Reward delivery
     sma = AddState(sma, 'Name', 'Reward', ...
         'Timer', ValveTime, ...
