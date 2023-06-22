@@ -7,7 +7,7 @@ The directory of behavior protocol files in te behavior computer is
 # Running behavior paradigm and Recording   
 Updated: 2023-06-21
 
-Connection
+Connection   
 Digital-in 1: High-speed camera TTL from the function generator   
 Digital-in 2: Lickometer   
 Digital-in 3: Auditory cue from the HiFi module   
