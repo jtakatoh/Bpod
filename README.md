@@ -8,10 +8,10 @@ The directory of behavior protocol files in te behavior computer is
 Updated: 2023-06-21
 
 Connection
-Digital-in 1: High-speed camera TTL from the function generator
-Digital-in 2: Lickometer
-Digital-in 3: Auditory cue from the HiFi module
-Digital-in 4: Reward delivery from Bpod BNC2
+Digital-in 1: High-speed camera TTL from the function generator   
+Digital-in 2: Lickometer   
+Digital-in 3: Auditory cue from the HiFi module   
+Digital-in 4: Reward delivery from Bpod BNC2   
 
 1. Start the Intan program from Terminal (cd Programs/IntanRHX > ./IntanRHX)
 2. Create a new file and name it for recording.
