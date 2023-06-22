@@ -6,9 +6,16 @@ The directory of behavior protocol files in te behavior computer is
 
 # Running behavior paradigm and Recording   
 Updated: 2023-06-21
-1. Start the Intan program from Terminal (Directory here)
+
+Connection
+Digital-in 1: High-speed camera TTL from the function generator
+Digital-in 2: Lickometer
+Digital-in 3: Auditory cue from the HiFi module
+Digital-in 4: Reward delivery from Bpod BNC2
+
+1. Start the Intan program from Terminal (cd Programs/IntanRHX > ./IntanRHX)
 2. Create a new file and name it for recording.
-3. Start CameraViewr from Terminal (Directory here)
+3. Start CameraViewr from Terminal (cd Programs/build-CameraViewer-Clang-Release > ./CameraViewer)
 4. Rescan and Connect cameras
 5. Put an animal in the rig
 6. Turn IR light on
@@ -25,7 +32,7 @@ Updated: 2023-06-21
 17. Stop recording in the Intan program.
 
 ## Licking_Optogenetics_LEDCue.m: 
-delivers a water reward every 20 seconds. Upon activation of the "mixTrials" section, the code triggers BNC2 for 5 seconds during 20% of the total trials. BNC2 is currently not active with the current settings.
+delivers a water reward every 20 seconds. Upon activating the "mixTrials" section, the code triggers BNC2 for 5 seconds during 20% of the total trials. BNC2 is currently not active with the current settings.
 
 ## LickToGetReward_5.m: 
 delivers a water reward when the animal licks 5 times within a 10-second response window after an auditory cue. After a successful trial, the animal is allowed to drink for 5 seconds. If the animal fails to meet the licking requirement, the trial proceeds to the inter-trial interval (ITI). 
