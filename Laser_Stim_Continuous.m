@@ -29,12 +29,12 @@ for currentTrial = 1
     % Set GlobalTimer 3 for Flex1DO. 500 ms x10, 5 sec interval
     sma = SetGlobalTimer(sma, 'TimerID', 3, 'Duration', 0.5, 'OnsetDelay', 0,...
         'Channel', 'Flex1DO', 'OnLevel', 1, 'OffLevel', 0, ...
-        'Loop', 10, 'SendGlobalTimerEvents', 0, 'LoopInterval', 5);
+        'Loop', 10, 'SendGlobalTimerEvents', 1, 'LoopInterval', 5);
 
     % Set GlobalTimer 4 for Flex1DO. 500 ms x10, 5 sec interval
     sma = SetGlobalTimer(sma, 'TimerID', 4, 'Duration', 1, 'OnsetDelay', 0,...
         'Channel', 'Flex1DO', 'OnLevel', 1, 'OffLevel', 0, ...
-        'Loop', 10, 'SendGlobalTimerEvents', 0, 'LoopInterval', 5);
+        'Loop', 10, 'SendGlobalTimerEvents', 1, 'LoopInterval', 5);
     
     
     % Set GlobalCounter 1 for GlobalTimer 2
