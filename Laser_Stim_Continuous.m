@@ -123,7 +123,7 @@ for currentTrial = 1
         'Timer', Inf, ...
         'StateChangeConditions', {'GlobalCounter3_End', '>exit'}, ...
         'OutputActions', {});
-    
+
     %%
     SendStateMachine(sma); % Send the state matrix to the Bpod device
     RawEvents = RunStateMatrix; % Run the trial and return events
@@ -144,4 +144,3 @@ for currentTrial = 1
     end
 
 end
-
