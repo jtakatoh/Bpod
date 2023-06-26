@@ -1,6 +1,6 @@
 function Laser_Stim_Continuous
 %%
-% This script delivers continuous laser stim (100ms, 500ms, and 100ms)
+% This script delivers continuous laser stim (100ms, 500ms, and 1000ms)
 % Each stim repeats 10 times.
 %%
 global BpodSystem
